@@ -1,0 +1,202 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f5f7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor Principal (BEM) */
+.main-container {
+    width: 100%;
+    max-width: 960px;
+    text-align: center;
+}
+
+.main-container__title {
+    color: #1e4d8c;
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* Contenedor de las tarjetas con el fondo lila del diseño */
+.cards-wrapper {
+    background-color: #c5cae9;
+    padding: 45px 30px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    border-radius: 4px;
+}
+
+/* Bloque Tarjeta (BEM) */
+.card {
+    background-color: #ffffff;
+    width: 330px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Encabezados con Clip-Path */
+.card__header {
+    height: 145px;
+    background-color: #cf76c5;
+    width: 100%;
+}
+
+/* Polígono de 5 puntos (corte hacia arriba en el centro) para Tarjeta 1 */
+.card__header--first {
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 62%, 0 88%);
+}
+
+/* Polígono de 4 puntos (corte diagonal) para Tarjeta 2 */
+.card__header--second {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 60%);
+}
+
+/* Contenedor de la Foto Circular */
+.card__avatar-container {
+    width: 115px;
+    height: 115px;
+    margin: -85px auto 10px auto;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card__avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Cuerpo de la tarjeta */
+.card__body {
+    padding: 10px 28px 25px 28px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 10px;
+}
+
+.card__divider {
+    width: 35px;
+    border: none;
+    border-top: 2px solid #999999;
+    margin-bottom: 18px;
+}
+
+.card__description {
+    font-size: 0.9rem;
+    color: #888888;
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+/* Botones de acción centrales (+, WhatsApp, Correo) */
+.card__actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+.card__action-btn {
+    color: #cf76c5;
+    font-size: 1.25rem;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.card__action-btn:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+}
+
+/* Modificador BEM para los botones con borde circular de la Tarjeta 2 */
+.card__action-btn--circle {
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid #cf76c5;
+    border-radius: 50%;
+    font-size: 1.1rem;
+}
+
+/* Pie de tarjeta (Footer) con Clip-Path */
+.card__footer {
+    background-color: #5c6bc0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+}
+
+/* Polígono de 7 puntos (con el triangulito/pico arriba en el centro) para Tarjeta 1 */
+.card__footer--first {
+    height: 75px;
+    padding-top: 18px;
+    clip-path: polygon(0 24%, 44% 24%, 50% 0, 56% 24%, 100% 24%, 100% 100%, 0 100%);
+}
+
+/* Polígono de 4 puntos (diagonal descendiente hacia la derecha) para Tarjeta 2 */
+.card__footer--second {
+    height: 95px;
+    padding-top: 35px;
+    clip-path: polygon(0 0, 100% 42%, 100% 100%, 0 100%);
+}
+
+.card__social-link {
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.card__social-link:hover {
+    transform: translateY(-3px);
+    color: #e8eaf6;
+}
+
+/* Responsividad para pantallas móviles */
+@media screen and (max-width: 768px) {
+    .cards-wrapper {
+        padding: 30px 15px;
+        gap: 35px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 330px;
+    }
+}
